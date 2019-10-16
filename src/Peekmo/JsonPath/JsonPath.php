@@ -158,7 +158,7 @@ class JsonPath
 
         $expr = preg_replace(array("/\\$/","/@/"), array("\$this->obj","\$o"), $x);
         $expr = preg_replace("#\.#", "->", $expr);
-        $res = eval("\$name = $expr;");
+        $res = eval("\$name = @$expr;");
 
         if ($res === FALSE) {
             print("(jsonPath) SyntaxError: " . $expr);
